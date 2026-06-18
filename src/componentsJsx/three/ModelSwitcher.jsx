@@ -36,20 +36,30 @@ const ModelSwitcher = ({ scale, isMobile }) => {
     useGSAP(() => {
 
         if (showLargeMacbook) {
-            moveGroup(smallMacbookRef.current, -OFFSET_DISTANCE);
-            moveGroup(largeMacbookRef.current, 0);
 
+            // 14" exits right
+            moveGroup(smallMacbookRef.current, OFFSET_DISTANCE);
             fadeMeshes(smallMacbookRef.current, 0);
-            fadeMeshes(largeMacbookRef.current, 1);
-        } else {
-            moveGroup(smallMacbookRef.current, 0);
-            moveGroup(largeMacbookRef.current, -OFFSET_DISTANCE);
 
-            fadeMeshes(smallMacbookRef.current, 1);
+            // 16" starts left
+            largeMacbookRef.current.position.x = -OFFSET_DISTANCE;
+            moveGroup(largeMacbookRef.current, 0);
+            fadeMeshes(largeMacbookRef.current, 1);
+
+        } else {
+
+            // 16" exits right
+            moveGroup(largeMacbookRef.current, OFFSET_DISTANCE);
             fadeMeshes(largeMacbookRef.current, 0);
+
+            // 14" starts left
+            smallMacbookRef.current.position.x = -OFFSET_DISTANCE;
+            moveGroup(smallMacbookRef.current, 0);
+            fadeMeshes(smallMacbookRef.current, 1);
+
         }
 
-    }, [scale])
+    }, [scale]);
 
     const controlsConfig = {
         snap: true,
