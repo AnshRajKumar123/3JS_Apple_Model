@@ -5,6 +5,10 @@ import ProductViwer from './componentsJsx/ProductViwer'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import Showcase from './componentsJsx/Showcase'
+import Performance from './componentsJsx/Performance'
+import Features from './componentsJsx/Features'
+import Highlights from './componentsJsx/Highlights'
+import Footer from './componentsJsx/Footer'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,6 +19,10 @@ const App = () => {
             <Hero />
             <ProductViwer />
             <Showcase />
+            <Performance />
+            <Features />
+            <Highlights />
+            <Footer />
         </main>
     )
 }
